@@ -5,23 +5,23 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Answears extends JPanel implements ActionListener  {
-    JButton A;
-    JButton B;
-    JButton C;
-    JButton D;
+public class Answers extends JPanel implements ActionListener  {
+    AnswerButton A;
+    AnswerButton B;
+    AnswerButton C;
+    AnswerButton D;
     GameScreen g;
-    public Answears(GameScreen gg)
+    public Answers(GameScreen gg)
     {
         //setPreferredSize(new Dimension(500, 150));
         //setLocation(50,50);
         g = gg;
         setLayout(new GridLayout(2, 2, 30,15));
-
-        A = new JButton("A");
-        B = new JButton("B");
-        C = new JButton("C");
-        D = new JButton("D");
+        setBackground(Color.CYAN);
+        A = new AnswerButton(g.answer[0]);
+        B = new AnswerButton(g.answer[1]);
+        C = new AnswerButton(g.answer[2]);
+        D = new AnswerButton(g.answer[3]);
         A.addActionListener(this);
         B.addActionListener(this);
         C.addActionListener(this);
