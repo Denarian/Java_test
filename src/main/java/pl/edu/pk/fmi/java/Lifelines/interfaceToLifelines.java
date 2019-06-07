@@ -4,5 +4,5 @@ interface interfaceToLifelines
 {
     int getUseValue();
     void ChangeUsed();
-    int Lifeline(String answerA,String answerB ,String answerC,String answerD,String rightAnswer);
+    String[] Lifeline(String answerA,String answerB ,String answerC,String answerD,String rightAnswer);
 }

@@ -5,6 +5,7 @@ import java.util.Random;
 //RADEME:
 //Klasa zwraca 2 stringi jeden z nich jest poprawną odpowiedzią a drugi z nich jest losową inną odpowiedzią
 //zmienna stat określa czy koło zostało urzyte-tutaj zrobię w najbliższym czasie obserwatora narazie go nie ma
+//!!!!!!!!!!! METODA LIFELINE ODPOWIEDZIALNA ZA DZIAŁANIE KOŁA ZWRACA TABLICE 2 ELEMENTOWA
 
 public class Lifelines_50_50 implements interfaceToLifelines
 {
@@ -24,7 +25,7 @@ public class Lifelines_50_50 implements interfaceToLifelines
     }
 
     @Override
-    public int Lifeline(String answerA, String answerB, String answerC, String answerD, String rightAnswer) {
+    public String[] Lifeline(String answerA, String answerB, String answerC, String answerD, String rightAnswer) {
         //obsługa wyjątków dla argumentów funkcji
         if(this.stat==1)
         {
@@ -45,12 +46,19 @@ public class Lifelines_50_50 implements interfaceToLifelines
         answers.put(1,answerB);
         answers.put(2,answerC);
         answers.put(3,answerD);
-        //użycie generatora
+
         while(true) {
+            //użycie generatora
             int a = generator.nextInt(4);
             if (answers.get(a) == rightAnswer) continue;
-            else System.out.println(answers.get(a)+" "+rightAnswer);
-            return 0;
+            else {
+                //System.out.println(answers.get(a) + " " + rightAnswer);
+                String[] temp = new String[2];
+                temp[0]=answers.get(a).toString();
+                temp[1]=rightAnswer;
+                ChangeUsed();
+                return temp;
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 package pl.edu.pk.fmi.java.PlayerData;
 
-
+//IMPLEMENTACJA DO UI MA BYć TAKA ŻE JAK KTÓREs Z PoL JEST ROWNE 1 TO NIE DA SIE PONOWNIE URZYC DANEGO KOLA
 public class MainPlayer
 {
 
