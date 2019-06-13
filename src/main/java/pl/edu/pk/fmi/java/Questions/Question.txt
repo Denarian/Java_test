@@ -11,8 +11,8 @@ Wait(2000)
 Stop(2000)
 Delay(2000)
 Sleep(2000)
-3
 d
+3
 Ktora deklaracja jest zapisana poprawnie?
 int x;
 integer x;
