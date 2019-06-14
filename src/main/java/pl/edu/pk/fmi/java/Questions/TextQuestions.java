@@ -15,9 +15,88 @@ public class TextQuestions implements Question
     private String[] answers;
     private String correct;
 
-    public TextQuestions() throws IOException
+    public static class TextQuestionsBuilder
     {
-        this.set_from_file();
+        private int nr;
+        private String body;
+        private String[] answers;
+        private String correct;
+
+
+        public TextQuestionsBuilder nr(int nr)
+        {
+            this.nr = nr;
+            return this;
+        }
+
+        public TextQuestionsBuilder body(String body)
+        {
+            this.body = body;
+            return this;
+        }
+
+        public TextQuestionsBuilder answers(String[] answers)
+        {
+            this.answers = answers;
+            return this;
+        }
+
+        public TextQuestionsBuilder correct(String correct)
+        {
+            this.correct = correct;
+            return this;
+        }
+
+        public TextQuestions build() throws IOException
+        {
+            return new TextQuestions(this);
+        }
+
+        public TextQuestions build_from_file() throws IOException
+        {
+            BufferedReader bf = null;
+            try
+            {
+                this.answers = new String[4];
+                String fileName = "src\\main\\java\\pl\\edu\\pk\\fmi\\java\\Questions\\Question.txt";
+
+                bf = new BufferedReader(new FileReader(fileName));
+                for (int i = 0; i < 7 * TextQuestions.count; i++)
+                {
+                    bf.readLine();
+                }
+                this.nr = Integer.valueOf(bf.readLine());
+                this.body = bf.readLine();
+                for (int i = 0; i < 4; i++)
+                {
+                    this.answers[i] = bf.readLine();
+                }
+                this.correct = bf.readLine();
+
+            }
+            catch (IOException ex)
+            {
+                System.out.println("blad pliku");
+                System.exit(1);
+            }
+            finally
+            {
+                bf.close();
+                TextQuestions.count++;
+            }
+            return new TextQuestions(this);
+        }
+
+
+
+    }
+
+    private TextQuestions(final TextQuestionsBuilder builder)
+    {
+        this.nr = builder.nr;
+        this.body = builder.body;
+        this.answers = builder.answers;
+        this.correct = builder.correct;
     }
 
     @Override
@@ -38,40 +117,6 @@ public class TextQuestions implements Question
         return q;
     }
 
-    private void set_from_file() throws IOException
-    {
-        BufferedReader bf = null;
-        try
-        {
-            this.answers = new String[4];
-            String fileName = "src\\main\\java\\pl\\edu\\pk\\fmi\\java\\Questions\\Question.txt";
-
-            bf = new BufferedReader(new FileReader(fileName));
-            for (int i = 0; i < 7 * this.count; i++)
-            {
-                bf.readLine();
-            }
-            this.nr = Integer.valueOf(bf.readLine());
-            this.body = bf.readLine();
-            for (int i = 0; i < 4; i++)
-            {
-                this.answers[i] = bf.readLine();
-            }
-            this.correct = bf.readLine();
-
-        }
-        catch (IOException ex)
-        {
-            System.out.println("blad pliku");
-            System.exit(1);
-        }
-        finally
-        {
-            bf.close();
-            count++;
-        }
-    }
-
     @Override
     public String toString()
     {
@@ -85,6 +130,7 @@ public class TextQuestions implements Question
     }
 
     @Override
+//    Sprawdzanie_odp
     public boolean is_correct(String answer)
     {
         /**
