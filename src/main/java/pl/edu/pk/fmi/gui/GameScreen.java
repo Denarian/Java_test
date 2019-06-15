@@ -45,7 +45,7 @@ public class GameScreen extends JPanel implements ActionListener{
         scoreLabel.setBounds(635,263,100,50);
         lifebuoys.setBounds(250,320,300,80);
         answers.setBounds(0,400,800,200);
-        question.setBounds(100,100,400,500);
+        question.setBounds(100,100,400,300);
     }
     @Override
     protected void paintComponent(Graphics g) {

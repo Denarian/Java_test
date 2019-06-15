@@ -17,7 +17,8 @@ public class Answers extends JPanel implements ActionListener  {
         //setLocation(50,50);
         g = gg;
         setLayout(new GridLayout(2, 2, 30,15));
-        setBackground(Color.CYAN);
+        setBackground(new Color(0,0,0,0));
+        setOpaque(false);
         A = new AnswerButton(g.answer[0]);
         B = new AnswerButton(g.answer[1]);
         C = new AnswerButton(g.answer[2]);
