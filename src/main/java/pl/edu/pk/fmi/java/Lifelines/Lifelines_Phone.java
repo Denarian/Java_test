@@ -1,4 +1,6 @@
 package pl.edu.pk.fmi.java.Lifelines;
+import pl.edu.pk.fmi.java.PlayerData.MainPlayer;
+import pl.edu.pk.fmi.java.observer.Observer;
 import java.util.Random;
 
 //RADEME:
@@ -6,12 +8,31 @@ import java.util.Random;
 //zmienna stat określa czy koło zostało urzyte-tutaj zrobię w najbliższym czasie obserwatora narazie go nie ma
 //!!!!!!!!!!! METODA LIFELINE ODPOWIEDZIALNA ZA DZIAŁANIE KOŁA ZWRACA TABLICE 2 ELEMENTOWA
 
-public class Lifelines_Phone implements interfaceToLifelines
+public class Lifelines_Phone implements interfaceToLifelines, Observer
 {
     //zmienna informująca czy koło zostało użyte
     private int stat=0;
     //inicjalizacja generatora liczb
     private Random generator = new Random();
+
+
+    void checkstatus(int a)
+    {
+        if(a==1)
+        {
+            stat=1;
+        }
+    }
+
+    @Override
+    public void Update(Object o)
+    {
+        if(o instanceof MainPlayer)
+        {
+            MainPlayer MP=(MainPlayer) o;
+            checkstatus(MP.changePhone());
+        }
+    }
 
     @Override
     public int getUseValue() {
@@ -31,9 +52,9 @@ public class Lifelines_Phone implements interfaceToLifelines
         answerC="c";
         answerD="d";
 
-        if(this.stat==1)
+        if(stat==1)
         {
-            throw new RuntimeException("to koło zostało już użyte: ");
+            throw new RuntimeException("to koło Phone zostało już użyte: ");
         }
         if(answerA==answerB || answerA==answerC || answerA==answerD || answerB==answerC ||answerB==answerD || answerC==answerD)
         {
@@ -82,7 +103,6 @@ public class Lifelines_Phone implements interfaceToLifelines
         String[] tab=new String[2];
         tab[0]=finall;
         tab[1]=rightAnswer;
-        ChangeUsed();
     return tab;
     }
 }

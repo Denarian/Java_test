@@ -1,36 +1,48 @@
 package pl.edu.pk.fmi.java.Lifelines;
 import java.util.Dictionary;
 import java.util.Hashtable;
-import java.util.Observer;
+
+import pl.edu.pk.fmi.java.PlayerData.MainPlayer;
+import pl.edu.pk.fmi.java.observer.Observer;
 import java.util.Random;
 //RADEME:
 //Klasa zwraca 2 stringi jeden z nich jest poprawną odpowiedzią a drugi z nich jest losową inną odpowiedzią
 //zmienna stat określa czy koło zostało urzyte-tutaj zrobię w najbliższym czasie obserwatora narazie go nie ma
 //!!!!!!!!!!! METODA LIFELINE ODPOWIEDZIALNA ZA DZIAŁANIE KOŁA ZWRACA TABLICE 2 ELEMENTOWA
 
-public class Lifelines_50_50 implements interfaceToLifelines
+public class Lifelines_50_50 implements interfaceToLifelines,Observer
 {
     //zmienna informująca czy koło zostało użyte
     private int stat=0;
     //inicjalizacja generatora liczb
     private Random generator = new Random();
 
-
-    @Override
-    public int getUseValue(){
-        return this.stat;
+    void checkstatus(int a)
+    {
+        if(a==0)
+        {
+            stat=1;
+        }
     }
-
     @Override
     public void ChangeUsed() {
         this.stat=1;
     }
 
-    /*@Override
-    public void Update(Object object)
+    @Override
+    public void Update(Object o)
     {
-        System.out.println("Yoss");
-    }*/
+        if(o instanceof MainPlayer)
+        {
+            MainPlayer MP=(MainPlayer) o;
+            checkstatus(MP.change50_50());
+        }
+    }
+
+    @Override
+    public int getUseValue(){
+        return stat;
+    }
 
     @Override
     public String[] Lifeline(String answerA, String answerB, String answerC, String answerD, String rightAnswer) {
@@ -39,9 +51,9 @@ public class Lifelines_50_50 implements interfaceToLifelines
         answerB="b";
         answerC="c";
         answerD="d";
-        if(this.stat==1)
+        if(stat==1)
         {
-            throw new RuntimeException("to koło zostało już użyte: ");
+            throw new RuntimeException("to koło 50_50 zostało już użyte: ");
         }
         if(answerA==answerB || answerA==answerC || answerA==answerD || answerB==answerC ||answerB==answerD || answerC==answerD)
         {
@@ -68,7 +80,6 @@ public class Lifelines_50_50 implements interfaceToLifelines
                 String[] temp = new String[2];
                 temp[0]=answers.get(a).toString();
                 temp[1]=rightAnswer;
-                ChangeUsed();
                 return temp;
             }
         }

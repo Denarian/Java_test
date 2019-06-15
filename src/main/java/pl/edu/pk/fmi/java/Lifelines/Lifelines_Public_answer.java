@@ -1,12 +1,22 @@
 package pl.edu.pk.fmi.java.Lifelines;
 import java.util.Random;
 
-public class Lifelines_Public_answer implements interfaceToLifelines {
+import pl.edu.pk.fmi.java.PlayerData.MainPlayer;
+import pl.edu.pk.fmi.java.observer.Observer;
+public class Lifelines_Public_answer implements interfaceToLifelines,Observer {
 
     //zmienna informująca czy koło zostało użyte
     private int stat=0;
     //inicjalizacja generatora liczb
     private Random generator = new Random();
+
+    void checkstatus(int a)
+    {
+        if(a==2)
+        {
+            stat=1;
+        }
+    }
 
     @Override
     public int getUseValue() {return this.stat;}
@@ -15,15 +25,25 @@ public class Lifelines_Public_answer implements interfaceToLifelines {
     public void ChangeUsed() {this.stat=1; }
 
     @Override
+    public void Update(Object o)
+    {
+        if(o instanceof MainPlayer)
+        {
+            MainPlayer MP=(MainPlayer) o;
+            checkstatus(MP.changePublic());
+        }
+    }
+
+    @Override
     public String[] Lifeline(String answerA, String answerB, String answerC, String answerD, String rightAnswer) {
         //obsługa wyjątków dla argumentów funkcji
         answerA="a";
         answerB="b";
         answerC="c";
         answerD="d";
-        if(this.stat==1)
+        if(stat==1)
         {
-            throw new RuntimeException("to koło zostało już użyte: ");
+            throw new RuntimeException("to koło Publika zostało już użyte: ");
         }
         if(answerA==answerB || answerA==answerC || answerA==answerD || answerB==answerC ||answerB==answerD || answerC==answerD)
         {
