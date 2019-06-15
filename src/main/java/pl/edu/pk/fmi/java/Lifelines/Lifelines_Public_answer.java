@@ -17,6 +17,10 @@ public class Lifelines_Public_answer implements interfaceToLifelines {
     @Override
     public String[] Lifeline(String answerA, String answerB, String answerC, String answerD, String rightAnswer) {
         //obsługa wyjątków dla argumentów funkcji
+        answerA="a";
+        answerB="b";
+        answerC="c";
+        answerD="d";
         if(this.stat==1)
         {
             throw new RuntimeException("to koło zostało już użyte: ");

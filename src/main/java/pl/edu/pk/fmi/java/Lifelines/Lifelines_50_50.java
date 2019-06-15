@@ -1,6 +1,7 @@
 package pl.edu.pk.fmi.java.Lifelines;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.Observer;
 import java.util.Random;
 //RADEME:
 //Klasa zwraca 2 stringi jeden z nich jest poprawną odpowiedzią a drugi z nich jest losową inną odpowiedzią
@@ -14,6 +15,7 @@ public class Lifelines_50_50 implements interfaceToLifelines
     //inicjalizacja generatora liczb
     private Random generator = new Random();
 
+
     @Override
     public int getUseValue(){
         return this.stat;
@@ -24,9 +26,19 @@ public class Lifelines_50_50 implements interfaceToLifelines
         this.stat=1;
     }
 
+    /*@Override
+    public void Update(Object object)
+    {
+        System.out.println("Yoss");
+    }*/
+
     @Override
     public String[] Lifeline(String answerA, String answerB, String answerC, String answerD, String rightAnswer) {
         //obsługa wyjątków dla argumentów funkcji
+        answerA="a";
+        answerB="b";
+        answerC="c";
+        answerD="d";
         if(this.stat==1)
         {
             throw new RuntimeException("to koło zostało już użyte: ");
