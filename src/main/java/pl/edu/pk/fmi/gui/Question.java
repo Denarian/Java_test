@@ -8,8 +8,11 @@ public class Question  extends JPanel
     public Question()
     {
         text = new JLabel("TEST");
-        setBackground(Color.yellow);
+        setBackground(new Color(0,0,0,0));
+        setOpaque(false);
         add(text);
+        text.setForeground(Color.WHITE);
+        text.setFont(getFont().deriveFont(30.0f));
     }
 
 }

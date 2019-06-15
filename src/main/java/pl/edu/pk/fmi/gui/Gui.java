@@ -11,7 +11,8 @@ public class Gui extends JFrame{
         Game = new GameScreen();
         panel = Game;
         add(panel);
-
+        setSize(800, 600);
+        setResizable(false);
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

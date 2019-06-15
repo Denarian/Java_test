@@ -13,11 +13,12 @@ public class Answers extends JPanel implements ActionListener  {
     GameScreen g;
     public Answers(GameScreen gg)
     {
-        //setPreferredSize(new Dimension(500, 150));
-        //setLocation(50,50);
+        setPreferredSize(new Dimension(800, 200));
+
         g = gg;
-        setLayout(new GridLayout(2, 2, 30,15));
-        setBackground(Color.CYAN);
+        setLayout(new GridLayout(2, 2, 10,10));
+        setBackground(new Color(0,0,0,0));
+        setOpaque(false);
         A = new AnswerButton(g.answer[0]);
         B = new AnswerButton(g.answer[1]);
         C = new AnswerButton(g.answer[2]);
