@@ -1,4 +1,5 @@
 package pl.edu.pk.fmi.java.Lifelines;
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
@@ -53,13 +54,13 @@ public class Lifelines_50_50 implements interfaceToLifelines,Observer
         answerD="d";
         if(stat==1)
         {
-            throw new RuntimeException("to koło 50_50 zostało już użyte: ");
+            return new String[0];
         }
-        if(answerA==answerB || answerA==answerC || answerA==answerD || answerB==answerC ||answerB==answerD || answerC==answerD)
+        if(answerA.equals(answerB) || answerA.equals(answerC) || answerA.equals(answerD) || answerB.equals(answerC) ||answerB.equals(answerD) || answerC.equals(answerD))
         {
             throw new IllegalArgumentException("kilka odpowiedzi jest takich samych: ");
         }
-        if(rightAnswer!=answerA && rightAnswer!=answerB && rightAnswer!=answerC && rightAnswer!=answerD)
+        if( !rightAnswer.equals(answerA) && !rightAnswer.equals(answerB) && !rightAnswer.equals(answerC) && !rightAnswer.equals(answerD))
         {
             throw new IllegalArgumentException("Poprawna odpowiedz nie jest jedną z podanych: ");
         }
@@ -71,16 +72,19 @@ public class Lifelines_50_50 implements interfaceToLifelines,Observer
         answers.put(2,answerC);
         answers.put(3,answerD);
 
+        String[] temp = new String[2];
+        int i = 0;
         while(true) {
             //użycie generatora
             int a = generator.nextInt(4);
-            if (answers.get(a) == rightAnswer) continue;
+            if (answers.get(a).equals(rightAnswer)) continue;
             else {
                 //System.out.println(answers.get(a) + " " + rightAnswer);
-                String[] temp = new String[2];
-                temp[0]=answers.get(a).toString();
-                temp[1]=rightAnswer;
-                return temp;
+                if( i > 0 && temp[0]==answers.get(a)) continue;
+
+                temp[i++]=answers.get(a).toString();
+                if(i == 2)
+                    return temp;
             }
         }
     }

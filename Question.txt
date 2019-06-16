@@ -1,12 +1,12 @@
 1
-Typ zmiennych o nazwie float przechowuje:
+Typ zmiennych o nazwie float przechowuje?
 liczby calkowite
 napisy
 liczby zmiennoprzecinkowe
 pojedyncze znaki
 c
 2
-<html>Wstrzymanie wykonania programu<br/> na czas 2 sekund uzyskasz instrukcja:</html>
+<html>Wstrzymanie wykonania programu<br/> na czas 2 sekund uzyskasz instrukcja?</html>
 Wait(2000)
 Stop(2000)
 Delay(2000)
@@ -20,16 +20,121 @@ x:integer;
 x=integer;
 a
 4
-Z jakiego przedzialu zostanie wylosowana liczba: rand()%10+2
+Z jakiego przedzialu zostanie wylosowana liczba: rand()%10+2?
 0..9
 2..9
 2..11
 0..11
 c
 5
-Ile razy wykona sie petla: for (int i=4; i>=-2; i--)
+Ile razy wykona sie petla: for (int i=4; i>=-2; i--)?
 ani razu
 nieskonczenie wiele razy
 6
 7
+d
+6
+<html>Narzędziem systemu Linux, służącym do monitorowania <br/>systemu przy pomocy scentralizowanego mechanizmu,<br/> jest program?</html>
+tar
+bcdedit
+fsck
+syslog
+d
+7
+<html>Jakie oprogramowanie, zapobiegające włamaniu do sieci,<br/> należy zainstalować na serwerze<br/> udostępniającym połączenie z internetem?</html>
+DNS
+DHCP
+FireWall
+Active Directory
+c
+8
+<html>Zestaw reguł definiujących sposób przesyłania informacji<br/> w sieci opisuje?</html>
+standard
+protokół
+zasada
+reguła
+b
+9
+<html>Jakie są wartości pasma częstotliwości<br/> oraz maksymalnej szybkości transmisji danych<br/> w standardzie 802.11g WiFi?<html/>
+5 GHz 54 Mbps
+5 GHz 300 Mbps
+2,4 GHz 54 Mbps
+2,4 GHz 300 Mbps
+c
+10
+<html>Aby zarządzać wielkością transferu sieciowego,<br/> administrator powinien wykorzystać program typu?</html>
+task manager
+quality manager
+package manager
+bandwidth manager
+d
+11
+<html>Protokół typu klient-serwer oraz żądanie-odpowiedź,<br/> który stosowany jest do udostępniania plików, to?</html>
+FTP
+SSL
+SSH
+ARP
+a
+12
+Adres IP v.4 ma długość
+2 bajty
+16 bitów
+32 bitów
+10 bajtów
+c
+13
+<html>Które medium transmisyjne należy zastosować,<br/> aby połączyć dwa punkty dystrybucyjne <br/>odległe od siebie o 600m?</html>
+światłowód
+skrętke STP
+skrętke UTP
+przewód koncentryczny
+a
+14
+<html>Do monitorowania transmisji danych w sieci komputerowej<br/> należy zastosować program typu?</html>
+firmware
+sniffer
+debugger
+kompilator
+b
+15
+<html>Prawidłowo zaprojektowana sieć komputerowa <br/>powinna umożliwiać rozbudowę, czyli charakteryzować się</html>
+redundancją
+wydajnością
+skalowalnością
+wydajnością
+c
+16
+<html>Najwyższy poziom bezpieczeństwa<br/> sieci bezprzewodowej zapewni szyfrowanie?</html>
+WPA
+WPA2
+ASK
+ROT13
+b
+17
+<html>Jaki system operacyjny został stworzony przez<br/> Linusa Torvaldsa?</html>
+Chrome OS
+Windows
+Mac OS
+Linux
+d
+18
+Rolą routera jest?
+tłumaczenie nazwy na adresy IP
+przekazywanie pakietów TCP/IP<br/>z sieci źródłowej do docelowej
+zabezpieczenia sieci przed<br/> atakiem z zewnątrz i z wewnątrz
+kierowanie pakietów <br/>do odpowiedniej sieci
+d
+19
+<html>Urządzenie sieciowe pracujące w trzeciej warstwie<br/> modelu ISO/OSI, operującej na adresach IP, to?</html>
+hub
+router
+bridge
+repeater
+b
+20
+<html>Które urządzenie należy wybrać do pomiarów<br/> mapy połączeń okablowania strukturalnego sieci lokalnej?</html>
+Monitor Sieciowy
+Reflektometr OTDR
+Analizator protokołów
+Analizator sieci LAN
 d

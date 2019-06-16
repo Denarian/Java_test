@@ -54,52 +54,52 @@ public class Lifelines_Phone implements interfaceToLifelines, Observer
 
         if(stat==1)
         {
-            throw new RuntimeException("to koło Phone zostało już użyte: ");
+            return new String[0];
         }
-        if(answerA==answerB || answerA==answerC || answerA==answerD || answerB==answerC ||answerB==answerD || answerC==answerD)
+        if(answerA.equals(answerB) || answerA.equals(answerC) || answerA.equals(answerD) || answerB.equals(answerC) ||answerB.equals(answerD) || answerC.equals(answerD))
         {
             throw new IllegalArgumentException("kilka odpowiedzi jest takich samych: ");
         }
-        if(rightAnswer!=answerA && rightAnswer!=answerB && rightAnswer!=answerC && rightAnswer!=answerD)
+        if( !rightAnswer.equals(answerA) && !rightAnswer.equals(answerB) && !rightAnswer.equals(answerC) && !rightAnswer.equals(answerD))
         {
             throw new IllegalArgumentException("Poprawna odpowiedz nie jest jedną z podanych: ");
         }
-        String text1="Witaj Przyjaciuelu! Postaram się pomóc!\n";
-        String text2="Zastanówmy się\n";
-        String text3=".......\n";
+        String text1="<html>Witaj Przyjacielu! Postaram się pomóc!<br/>";
+        String text2="Zastanówmy się<br/>";
+        String text3=".......<br/>";
         String text4="Moim zdaniem Poprawna odpowiedz to: ";
         String randAnswer,finall;
         //użycie generatora
         int a = generator.nextInt(7);
         switch (a){
-            case 0:{
+            case 0:
                 randAnswer=rightAnswer;
-                break;}
-            case 1:{
+                break;
+            case 1:
                 randAnswer=rightAnswer;
-                break;}
-            case 2:{
+                break;
+            case 2:
                 randAnswer=rightAnswer;
-                break;}
-            case 3: {
-            randAnswer=answerA;
-            break; }
-            case 4:{
+                break;
+            case 3:
+                randAnswer=answerA;
+                break;
+            case 4:
                 randAnswer=answerB;
-                break; }
-            case 5:{
+                break;
+            case 5:
                 randAnswer=answerC;
-                break; }
-            case 6:{
+                break;
+            case 6:
                 randAnswer=answerD;
-                break; }
-            default:{
+                break;
+            default:
                 randAnswer="coś poszło nie tak";
-                System.exit(1);
-            }
+                //System.exit(1);
+
         }
 
-        finall=text1+text2+text3+text4+randAnswer;
+        finall=text1+text2+text3+text4+randAnswer.toUpperCase()+"</html>";
         String[] tab=new String[2];
         tab[0]=finall;
         tab[1]=rightAnswer;

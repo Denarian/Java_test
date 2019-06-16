@@ -18,24 +18,28 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class GameScreen extends JPanel implements ActionListener{
-    public int score = 10000;
     public String question_strings[];
     JLabel scoreLabel;
     Answers answers;
     Question_panel question_panel;
     BufferedImage background_picture;
     Lifebuoys lifebuoys;
+    JLabel friend_info;
     Question question;
     MainPlayer player;
     boolean state;
+
+    Lifelines_50_50 life_50_50;
+    Lifelines_Phone life_phone;
+    Lifelines_Public_answer life_answer;
 
     public GameScreen(MainPlayer p, Question q) {
         player = p;
         question = q;
 
-        Lifelines_50_50 life_50_50=new Lifelines_50_50();
-        Lifelines_Phone life_phone=new Lifelines_Phone();
-        Lifelines_Public_answer life_answer=new Lifelines_Public_answer();
+        life_50_50 = new Lifelines_50_50();
+        life_phone = new Lifelines_Phone();
+        life_answer = new Lifelines_Public_answer();
         player.AttachN(life_50_50);
         player.AttachN(life_phone);
         player.AttachN(life_answer);
@@ -51,11 +55,16 @@ public class GameScreen extends JPanel implements ActionListener{
 
         question_strings = q.get_questtion();
 
+        friend_info = new JLabel();
+        friend_info.setBackground(new Color(0,0,0,0));
+        friend_info.setOpaque(false);
+        friend_info.setForeground(Color.WHITE);
+        friend_info.setFont(friend_info.getFont().deriveFont(12.f));
 
-        lifebuoys = new Lifebuoys();
+        lifebuoys = new Lifebuoys(this);
         answers = new Answers(this);
         question_panel = new Question_panel();
-        scoreLabel = new JLabel(""+score);
+        scoreLabel = new JLabel(""+player.GetPointCounter());
         scoreLabel.setForeground(Color.WHITE);
         scoreLabel.setFont(scoreLabel.getFont().deriveFont(30.0f));
         setLayout(null);
@@ -63,13 +72,16 @@ public class GameScreen extends JPanel implements ActionListener{
         add(question_panel);
         add(answers);
         add(lifebuoys);
+        add(friend_info);
         scoreLabel.setBounds(635,263,100,50);
-        lifebuoys.setBounds(250,320,300,80);
+        lifebuoys.setBounds(250,310,300,80);
+        friend_info.setBounds(10,300,240,100);
         answers.setBounds(0,400,800,200);
         question_panel.setBounds(80,40,600,230);
 
         question_panel.change_text(question_strings[0]);
         answers.update_content();
+
 
         state = false;
 
@@ -89,9 +101,19 @@ public class GameScreen extends JPanel implements ActionListener{
     public void update_content()
     {
         question_strings = question.get_questtion();
-        scoreLabel.setText(""+score);
+        scoreLabel.setText(""+player.GetPointCounter());
         question_panel.change_text(question_strings[0]);
         answers.update_content();
+        friend_info.setText("");
+        friend_info.repaint();
+    }
+    public void update_content_fin()
+    {
+        scoreLabel.setText(""+player.GetPointCounter());
+        question_panel.change_text(question_strings[0]);
+        answers.update_content();
+        friend_info.setText("");
+        friend_info.repaint();
     }
 
 }

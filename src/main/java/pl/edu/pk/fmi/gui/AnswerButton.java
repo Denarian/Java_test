@@ -48,8 +48,9 @@ public class AnswerButton extends JButton
         }
 
         g2d.setColor(Color.BLACK);
-
-        g2d.drawString(text,40,this.getHeight()/2);
+        int y = this.getHeight()/2 - 12;
+        for(String x: text.split("<br/>"))
+            g2d.drawString(x,40,y+=12);
 
 
     }

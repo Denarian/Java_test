@@ -43,13 +43,13 @@ public class Lifelines_Public_answer implements interfaceToLifelines,Observer {
         answerD="d";
         if(stat==1)
         {
-            throw new RuntimeException("to koło Publika zostało już użyte: ");
+            return new String[0];
         }
-        if(answerA==answerB || answerA==answerC || answerA==answerD || answerB==answerC ||answerB==answerD || answerC==answerD)
+        if(answerA.equals(answerB) || answerA.equals(answerC) || answerA.equals(answerD) || answerB.equals(answerC) ||answerB.equals(answerD) || answerC.equals(answerD))
         {
             throw new IllegalArgumentException("kilka odpowiedzi jest takich samych: ");
         }
-        if(rightAnswer!=answerA && rightAnswer!=answerB && rightAnswer!=answerC && rightAnswer!=answerD)
+        if( !rightAnswer.equals(answerA) && !rightAnswer.equals(answerB) && !rightAnswer.equals(answerC) && !rightAnswer.equals(answerD))
         {
             throw new IllegalArgumentException("Poprawna odpowiedz nie jest jedną z podanych: ");
         }
@@ -59,10 +59,6 @@ public class Lifelines_Public_answer implements interfaceToLifelines,Observer {
         int c = generator.nextInt(100-a-b);
         int d=100-a-b-c;
         //TABLICA SZANS
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        System.out.println(d);
         int [] tabValue={a,b,c,d};
         //MAX TABLE
         int max=0,rembi=0;
@@ -80,22 +76,22 @@ public class Lifelines_Public_answer implements interfaceToLifelines,Observer {
             tabValue[rembi]=tempindex;
         }
 
-        if (answerA==rightAnswer)
+        if (answerA.equals(rightAnswer))
         {
             String[] wynikowa={answerA,Integer.toString(max),answerB,Integer.toString(tabValue[0]),answerC,Integer.toString(tabValue[1]),answerD,Integer.toString(tabValue[2])};
             return wynikowa;
         }
-        if (answerB==rightAnswer)
+        if (answerB.equals(rightAnswer))
         {
             String[] wynikowa={answerB,Integer.toString(max),answerA,Integer.toString(tabValue[0]),answerC,Integer.toString(tabValue[1]),answerD,Integer.toString(tabValue[2])};
             return wynikowa;
         }
-        if (answerC==rightAnswer)
+        if (answerC.equals(rightAnswer))
         {
             String[] wynikowa={answerC,Integer.toString(max),answerA,Integer.toString(tabValue[0]),answerB,Integer.toString(tabValue[1]),answerD,Integer.toString(tabValue[2])};
             return wynikowa;
         }
-        if (answerD==rightAnswer)
+        if (answerD.equals(rightAnswer))
         {
             String[] wynikowa={answerD,Integer.toString(max),answerA,Integer.toString(tabValue[0]),answerB,Integer.toString(tabValue[1]),answerC,Integer.toString(tabValue[2])};
             return wynikowa;

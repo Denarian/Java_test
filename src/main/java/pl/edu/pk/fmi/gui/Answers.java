@@ -46,20 +46,28 @@ public class Answers extends JPanel implements ActionListener  {
     {
 
         Object source = e.getSource();
-
+        if(source == A || source == B ||source == C || source == D)
+        {
+            if(A.text.equals("A: "))
+                System.exit(0);
+        }
         if(g.state == true && (source == A || source == B ||source == C || source == D))
         {
-            g.question = new TextQuestions.TextQuestionsBuilder().build_from_file();
-
-            A.resetColor();
-            B.resetColor();
-            C.resetColor();
-            D.resetColor();
-            g.update_content();
+            if(g.question.get_count() == 20){
+                g.question_strings[0] = "<html><center>Gratulacje wygrałeś:<br>"+g.player.GetPointCounter()*50000+"zł<font size=\"1\"> długu</font></center></html>";
+                for (int i = 1;i< g.question_strings.length;i++)
+                    g.question_strings[i]="";
+                    g.update_content_fin();
+            }
+            else {
+                g.question = new TextQuestions.TextQuestionsBuilder().build_from_file();
+                g.update_content();
+            }
+            reset_state();
         }
         else if(source == A ) {
             if(g.question.is_correct('a')){
-                g.score++;
+                g.player.PlusPointCounter();
                 g.update_content();
                 A.changeColor(Color.GREEN);
                 g.state = true;
@@ -67,11 +75,10 @@ public class Answers extends JPanel implements ActionListener  {
                 A.changeColor(Color.RED);
                 g.state = true;
             }
-            System.out.println("a");
         }
         else if(source == B) {
             if(g.question.is_correct('b')) {
-                g.score++;
+                g.player.PlusPointCounter();
                 g.update_content();
                 B.changeColor(Color.GREEN);
                 g.state = true;
@@ -79,11 +86,10 @@ public class Answers extends JPanel implements ActionListener  {
                 B.changeColor(Color.RED);
                 g.state = true;
             }
-            System.out.println("b");
         }
         else if(source == C) {
             if(g.question.is_correct('c')) {
-                g.score++;
+                g.player.PlusPointCounter();
                 g.update_content();
                 C.changeColor(Color.GREEN);
                 g.state = true;
@@ -91,11 +97,10 @@ public class Answers extends JPanel implements ActionListener  {
                 C.changeColor(Color.RED);
                 g.state = true;
             }
-            System.out.println("c");
         }
         else if(source == D) {
             if(g.question.is_correct('d')) {
-                g.score++;
+                g.player.PlusPointCounter();
                 g.update_content();
                 D.changeColor(Color.GREEN);
                 g.state = true;
@@ -103,15 +108,81 @@ public class Answers extends JPanel implements ActionListener  {
                 D.changeColor(Color.RED);
                 g.state = true;
             }
-            System.out.println("d");
         }
 
     }
     void update_content(){
-        A.update(g.question_strings[1]);
-        B.update(g.question_strings[2]);
-        C.update(g.question_strings[3]);
-        D.update(g.question_strings[4]);
+        A.update("A: "+g.question_strings[1]);
+        B.update("B: "+g.question_strings[2]);
+        C.update("C: "+g.question_strings[3]);
+        D.update("D: "+g.question_strings[4]);
 
+    }
+    void block_answer(String x)
+    {
+        if(x.equals("a"))
+        {
+            A.changeColor(Color.MAGENTA);
+            A.removeActionListener(this);
+        }
+        else if(x.equals("b"))
+        {
+            B.changeColor(Color.MAGENTA);
+            B.removeActionListener(this);
+        }
+        else if(x.equals("c"))
+        {
+            C.changeColor(Color.MAGENTA);
+            C.removeActionListener(this);
+        }
+        else if(x.equals("d"))
+        {
+            D.changeColor(Color.MAGENTA);
+            D.removeActionListener(this);
+        }
+    }
+
+    void display_percentage(String x, String p)
+    {
+        if(x.equals("a"))
+        {
+            A.text += ": "+p+"%";
+            A.repaint();
+        }
+        else if(x.equals("b"))
+        {
+            B.text += ": "+p+"%";
+            B.repaint();
+        }
+        else if(x.equals("c"))
+        {
+            C.text += ": "+p+"%";
+            C.repaint();
+        }
+        else if(x.equals("d"))
+        {
+            D.text += ": "+p+"%";
+            D.repaint();
+        }
+    }
+
+    void reset_state()
+    {
+        g.state = false;
+        A.resetColor();
+        B.resetColor();
+        C.resetColor();
+        D.resetColor();
+        if(A.getActionListeners().length == 0)
+            A.addActionListener(this);
+
+        if(B.getActionListeners().length == 0)
+            B.addActionListener(this);
+
+        if(C.getActionListeners().length == 0)
+            C.addActionListener(this);
+
+        if(D.getActionListeners().length == 0)
+            D.addActionListener(this);
     }
 }

@@ -24,7 +24,6 @@ public class App
             }
         });
 
-        System.out.println( "Hello World!" );
     /*
 	MainPlayer player=new MainPlayer();
         Lifelines_50_50 temp=new Lifelines_50_50();

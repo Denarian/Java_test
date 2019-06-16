@@ -7,9 +7,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Lifebuoy extends JButton {
+public class Lifebuoy extends JButton  {
     BufferedImage image;
     boolean image_ok;
+    Lifebuoy o;
+    public Lifebuoy()
+    {
+
+    }
     public Lifebuoy(String file)
     {
         setBorder(null);
@@ -27,7 +32,9 @@ public class Lifebuoy extends JButton {
 
 
     }
-    protected void paintComponent(Graphics g) {
+
+
+    public void paintComponent(Graphics g) {
         //super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.BLUE);

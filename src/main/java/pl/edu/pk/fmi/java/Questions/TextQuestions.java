@@ -15,6 +15,11 @@ public class TextQuestions implements Question
     private String[] answers;
     private String correct;
 
+    @Override
+    public int get_count() {
+        return count;
+    }
+
     public static class TextQuestionsBuilder
     {
         private int nr;
@@ -54,8 +59,9 @@ public class TextQuestions implements Question
 
         public TextQuestions build_from_file()
         {
-            if(TextQuestions.count == 5)
+            if(TextQuestions.count == 20)
             {
+
                 System.out.println("oh NO I don't have Questions");
                 System.exit(44);
             }
@@ -71,7 +77,7 @@ public class TextQuestions implements Question
                 {
                     bf.readLine();
                 }
-                this.nr = Integer.valueOf(bf.readLine());
+                this.nr = Integer.parseInt(bf.readLine());
                 this.body = bf.readLine();
                 for (int i = 0; i < 4; i++)
                 {
@@ -155,15 +161,13 @@ public class TextQuestions implements Question
             return false;
     }
 
-    public boolean is_correct(int answer)
-    {
+    public boolean is_correct(int answer) {
         /**
          *      Sprawdza czy odp jest poprawna dla int
          *      liczenie od 1
          */
         String a = new String();
-        switch (answer)
-        {
+        switch (answer) {
             case 1:
                 a = "a";
                 break;
@@ -180,6 +184,5 @@ public class TextQuestions implements Question
         return is_correct(a);
 
     }
-
 
 }

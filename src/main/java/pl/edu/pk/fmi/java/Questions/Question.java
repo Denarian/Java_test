@@ -6,6 +6,7 @@ public interface Question
     boolean is_correct(String x);
     boolean is_correct(char x);
     boolean is_correct(int x);
+    int get_count();
 
 
 }
