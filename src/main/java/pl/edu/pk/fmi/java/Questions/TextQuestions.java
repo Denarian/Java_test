@@ -52,7 +52,7 @@ public class TextQuestions implements Question
             return new TextQuestions(this);
         }
 
-        public TextQuestions build_from_file() throws IOException
+        public TextQuestions build_from_file()
         {
             if(TextQuestions.count == 5)
             {
@@ -64,7 +64,7 @@ public class TextQuestions implements Question
             try
             {
                 this.answers = new String[4];
-                String fileName = "src\\main\\java\\pl\\edu\\pk\\fmi\\java\\Questions\\Question.txt";
+                String fileName = "Question.txt";
 
                 bf = new BufferedReader(new FileReader(fileName));
                 for (int i = 0; i < 7 * TextQuestions.count; i++)
@@ -78,17 +78,13 @@ public class TextQuestions implements Question
                     this.answers[i] = bf.readLine();
                 }
                 this.correct = bf.readLine();
-
+                bf.close();
+                TextQuestions.count++;
             }
             catch (IOException ex)
             {
                 System.out.println("blad pliku");
                 System.exit(1);
-            }
-            finally
-            {
-                bf.close();
-                TextQuestions.count++;
             }
             return new TextQuestions(this);
         }

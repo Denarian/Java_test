@@ -3,12 +3,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class ImageColorToRed {
-    Color color;
-    public ImageColorToRed(Color c)
+public class ImageColorChange {
+    Color t,s;
+    public ImageColorChange(Color source, Color target)
     {
-        color = c;
+        t = target;
+        s = source;
     }
+
     BufferedImage change_image(BufferedImage image)
     {
         // get width and height
@@ -20,9 +22,9 @@ public class ImageColorToRed {
         {
             for (int x = 0; x < width; x++)
             {
-               if(color.getRGB() == image.getRGB(x,y))
+               if(s.getRGB() == image.getRGB(x,y))
                {
-                   image.setRGB(x, y, Color.RED.getRGB());
+                   image.setRGB(x, y, t.getRGB());
                }
 
             }

@@ -22,8 +22,8 @@ public class Lifebuoy extends JButton {
             System.out.println("Nie zaleziono pliku "+file);
             image_ok = false;
         }
-        ImageColorToRed ItR = new ImageColorToRed(Color.WHITE);
-        image = ItR.change_image(image);
+        //ImageColorChange ItR = new ImageColorChange(Color.WHITE);
+        //image = ItR.change_image(image);
 
 
     }

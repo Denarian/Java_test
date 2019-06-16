@@ -1,21 +1,31 @@
 package pl.edu.pk.fmi.java;
+import pl.edu.pk.fmi.gui.Gui;
 import pl.edu.pk.fmi.java.Lifelines.Lifelines_50_50;
 import pl.edu.pk.fmi.java.Lifelines.Lifelines_Phone;
 import pl.edu.pk.fmi.java.Lifelines.Lifelines_Public_answer;
 import pl.edu.pk.fmi.java.PlayerData.MainPlayer;
+import pl.edu.pk.fmi.java.Questions.Question;
+import pl.edu.pk.fmi.java.Questions.TextQuestions;
 
 
-import pl.edu.pk.fmi.gui.Test;
+import java.awt.*;
 
 
 public class App 
 {
     public static void main( String[] args )
     {
-        Test a = new Test();
-        a.main();
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                Question question = new TextQuestions.TextQuestionsBuilder().build_from_file();
+                MainPlayer player=new MainPlayer();
+                Gui g = new Gui(player,question);
+            }
+        });
+
         System.out.println( "Hello World!" );
-        
+    /*
 	MainPlayer player=new MainPlayer();
         Lifelines_50_50 temp=new Lifelines_50_50();
         Lifelines_Phone temp2=new Lifelines_Phone();
@@ -44,6 +54,6 @@ public class App
         rozw3=temp3.Lifeline("jeden","dwa","trzy","cztery","a");
         for(int i=0;i<8;i++)System.out.println(rozw3[i]);
 
-
+*/
     }
 }

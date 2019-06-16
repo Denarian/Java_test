@@ -1,4 +1,11 @@
 package pl.edu.pk.fmi.gui;
+import pl.edu.pk.fmi.java.Lifelines.Lifelines_50_50;
+import pl.edu.pk.fmi.java.Lifelines.Lifelines_Phone;
+import pl.edu.pk.fmi.java.Lifelines.Lifelines_Public_answer;
+import pl.edu.pk.fmi.java.PlayerData.MainPlayer;
+import pl.edu.pk.fmi.java.Questions.Question;
+import pl.edu.pk.fmi.java.Questions.TextQuestions;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionEvent;
@@ -12,40 +19,60 @@ import javax.swing.*;
 
 public class GameScreen extends JPanel implements ActionListener{
     public int score = 10000;
-    public String answer[];
+    public String question_strings[];
     JLabel scoreLabel;
     Answers answers;
-    Question question;
+    Question_panel question_panel;
     BufferedImage background_picture;
     Lifebuoys lifebuoys;
-    public GameScreen() {
-        setPreferredSize(new Dimension(800, 600));
+    Question question;
+    MainPlayer player;
+    boolean state;
 
+    public GameScreen(MainPlayer p, Question q) {
+        player = p;
+        question = q;
+
+        Lifelines_50_50 life_50_50=new Lifelines_50_50();
+        Lifelines_Phone life_phone=new Lifelines_Phone();
+        Lifelines_Public_answer life_answer=new Lifelines_Public_answer();
+        player.AttachN(life_50_50);
+        player.AttachN(life_phone);
+        player.AttachN(life_answer);
+
+
+        setPreferredSize(new Dimension(800, 600));
         try {
             background_picture = ImageIO.read(new File("graphic/background.jpg"));
         } catch (IOException ex) {
             System.out.println("Nie zaleziono pliku background.jpg");
         }
-        answer = new String[4];
-        answer[0] = "Odpowiedz1 \n loll\n adasd";
-        answer[1] = "Odpowiedz2 \n loll\n adasd";
-        answer[2] = "Odpowiedz3 \n loll\n adasd";
-        answer[3] = "Odpowiedz4 \n loll\n adasd";
+
+
+        question_strings = q.get_questtion();
+
+
         lifebuoys = new Lifebuoys();
         answers = new Answers(this);
-        question = new Question();
+        question_panel = new Question_panel();
         scoreLabel = new JLabel(""+score);
         scoreLabel.setForeground(Color.WHITE);
         scoreLabel.setFont(scoreLabel.getFont().deriveFont(30.0f));
         setLayout(null);
         add(scoreLabel);
-        add(question);
+        add(question_panel);
         add(answers);
         add(lifebuoys);
         scoreLabel.setBounds(635,263,100,50);
         lifebuoys.setBounds(250,320,300,80);
         answers.setBounds(0,400,800,200);
-        question.setBounds(100,100,400,300);
+        question_panel.setBounds(80,40,600,230);
+
+        question_panel.change_text(question_strings[0]);
+        answers.update_content();
+
+        state = false;
+
     }
     @Override
     protected void paintComponent(Graphics g) {
@@ -59,9 +86,12 @@ public class GameScreen extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
     }
-    public void update()
+    public void update_content()
     {
+        question_strings = question.get_questtion();
         scoreLabel.setText(""+score);
+        question_panel.change_text(question_strings[0]);
+        answers.update_content();
     }
 
 }

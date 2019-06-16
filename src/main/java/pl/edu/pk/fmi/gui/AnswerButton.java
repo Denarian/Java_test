@@ -11,7 +11,7 @@ public class AnswerButton extends JButton
 {
     String text;
     BufferedImage frame[];
-
+    Color color;
     boolean frame_ok;
     public AnswerButton(String text)
     {
@@ -30,6 +30,7 @@ public class AnswerButton extends JButton
                 frame_ok = false;
             }
         }
+        color = Color.WHITE;
     }
     protected void paintComponent(Graphics g) {
         //super.paintComponent(g);
@@ -52,4 +53,26 @@ public class AnswerButton extends JButton
 
 
     }
+    void update(String s){
+        text = s;
+        repaint();
+    }
+    void changeColor(Color c)
+    {
+        ImageColorChange i = new ImageColorChange(color,c);
+        color = c;
+        for(int j=0;j<3;j++)
+            frame[j] = i.change_image(frame[j]);
+        repaint();
+    }
+    void resetColor()
+    {
+        ImageColorChange i = new ImageColorChange(color, Color.WHITE);
+        color = Color.WHITE;
+        for(int j=0;j<3;j++)
+            frame[j] = i.change_image(frame[j]);
+        repaint();
+    }
+
+
 }
