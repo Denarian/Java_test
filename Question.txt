@@ -34,107 +34,107 @@ nieskonczenie wiele razy
 7
 d
 6
-<html>NarzÄ™dziem systemu Linux, sÅ‚uÅ¼Ä…cym do monitorowania <br/>systemu przy pomocy scentralizowanego mechanizmu,<br/> jest program?</html>
+<html>Narzêdziem systemu Linux, s³u¿¹cym do monitorowania <br/>systemu przy pomocy scentralizowanego mechanizmu,<br/> jest program?</html>
 tar
 bcdedit
 fsck
 syslog
 d
 7
-<html>Jakie oprogramowanie, zapobiegajÄ…ce wÅ‚amaniu do sieci,<br/> naleÅ¼y zainstalowaÄ‡ na serwerze<br/> udostÄ™pniajÄ…cym poÅ‚Ä…czenie z internetem?</html>
+<html>Jakie oprogramowanie, zapobiegaj¹ce w³amaniu do sieci,<br/> nale¿y zainstalowaæ na serwerze<br/> udostêpniaj¹cym po³¹czenie z internetem?</html>
 DNS
 DHCP
 FireWall
 Active Directory
 c
 8
-<html>Zestaw reguÅ‚ definiujÄ…cych sposÃ³b przesyÅ‚ania informacji<br/> w sieci opisuje?</html>
+<html>Zestaw regu³ definiuj¹cych sposób przesy³ania informacji<br/> w sieci opisuje?</html>
 standard
-protokÃ³Å‚
+protokó³
 zasada
-reguÅ‚a
+regu³a
 b
 9
-<html>Jakie sÄ… wartoÅ›ci pasma czÄ™stotliwoÅ›ci<br/> oraz maksymalnej szybkoÅ›ci transmisji danych<br/> w standardzie 802.11g WiFi?<html/>
+<html>Jakie s¹ wartoœci pasma czêstotliwoœci<br/> oraz maksymalnej szybkoœci transmisji danych<br/> w standardzie 802.11g WiFi?<html/>
 5 GHz 54 Mbps
 5 GHz 300 Mbps
 2,4 GHz 54 Mbps
 2,4 GHz 300 Mbps
 c
 10
-<html>Aby zarzÄ…dzaÄ‡ wielkoÅ›ciÄ… transferu sieciowego,<br/> administrator powinien wykorzystaÄ‡ program typu?</html>
+<html>Aby zarz¹dzaæ wielkoœci¹ transferu sieciowego,<br/> administrator powinien wykorzystaæ program typu?</html>
 task manager
 quality manager
 package manager
 bandwidth manager
 d
 11
-<html>ProtokÃ³Å‚ typu klient-serwer oraz Å¼Ä…danie-odpowiedÅº,<br/> ktÃ³ry stosowany jest do udostÄ™pniania plikÃ³w, to?</html>
+<html>Protokó³ typu klient-serwer oraz ¿¹danie-odpowiedŸ,<br/> który stosowany jest do udostêpniania plików, to?</html>
 FTP
 SSL
 SSH
 ARP
 a
 12
-Adres IP v.4 ma dÅ‚ugoÅ›Ä‡
+Adres IP v.4 ma d³ugoœæ
 2 bajty
-16 bitÃ³w
-32 bitÃ³w
-10 bajtÃ³w
+16 bitów
+32 bitów
+10 bajtów
 c
 13
-<html>KtÃ³re medium transmisyjne naleÅ¼y zastosowaÄ‡,<br/> aby poÅ‚Ä…czyÄ‡ dwa punkty dystrybucyjne <br/>odlegÅ‚e od siebie o 600m?</html>
-Å›wiatÅ‚owÃ³d
-skrÄ™tke STP
-skrÄ™tke UTP
-przewÃ³d koncentryczny
+<html>Które medium transmisyjne nale¿y zastosowaæ,<br/> aby po³¹czyæ dwa punkty dystrybucyjne <br/>odleg³e od siebie o 600m?</html>
+œwiat³owód
+skrêtke STP
+skrêtke UTP
+przewód koncentryczny
 a
 14
-<html>Do monitorowania transmisji danych w sieci komputerowej<br/> naleÅ¼y zastosowaÄ‡ program typu?</html>
+<html>Do monitorowania transmisji danych w sieci komputerowej<br/> nale¿y zastosowaæ program typu?</html>
 firmware
 sniffer
 debugger
 kompilator
 b
 15
-<html>PrawidÅ‚owo zaprojektowana sieÄ‡ komputerowa <br/>powinna umoÅ¼liwiaÄ‡ rozbudowÄ™, czyli charakteryzowaÄ‡ siÄ™</html>
-redundancjÄ…
-wydajnoÅ›ciÄ…
-skalowalnoÅ›ciÄ…
-wydajnoÅ›ciÄ…
+<html>Prawid³owo zaprojektowana sieæ komputerowa <br/>powinna umo¿liwiaæ rozbudowê,<br/> czyli charakteryzowaæ siê</html>
+redundancj¹
+wydajnoœci¹
+skalowalnoœci¹
+wydajnoœci¹
 c
 16
-<html>NajwyÅ¼szy poziom bezpieczeÅ„stwa<br/> sieci bezprzewodowej zapewni szyfrowanie?</html>
+<html>Najwy¿szy poziom bezpieczeñstwa<br/> sieci bezprzewodowej zapewni szyfrowanie?</html>
 WPA
 WPA2
 ASK
 ROT13
 b
 17
-<html>Jaki system operacyjny zostaÅ‚ stworzony przez<br/> Linusa Torvaldsa?</html>
+<html>Jaki system operacyjny zosta³ stworzony przez<br/> Linusa Torvaldsa?</html>
 Chrome OS
 Windows
 Mac OS
 Linux
 d
 18
-RolÄ… routera jest?
-tÅ‚umaczenie nazwy na adresy IP
-przekazywanie pakietÃ³w TCP/IP<br/>z sieci ÅºrÃ³dÅ‚owej do docelowej
-zabezpieczenia sieci przed<br/> atakiem z zewnÄ…trz i z wewnÄ…trz
-kierowanie pakietÃ³w <br/>do odpowiedniej sieci
+Rol¹ routera jest?
+t³umaczenie nazwy na adresy IP
+przekazywanie pakietów TCP/IP<br/>z sieci Ÿród³owej do docelowej
+zabezpieczenia sieci przed<br/> atakiem z zewn¹trz i z wewn¹trz
+kierowanie pakietów <br/>do odpowiedniej sieci
 d
 19
-<html>UrzÄ…dzenie sieciowe pracujÄ…ce w trzeciej warstwie<br/> modelu ISO/OSI, operujÄ…cej na adresach IP, to?</html>
+<html>Urz¹dzenie sieciowe pracuj¹ce w trzeciej warstwie<br/> modelu ISO/OSI, operuj¹cej na adresach IP, to?</html>
 hub
 router
 bridge
 repeater
 b
 20
-<html>KtÃ³re urzÄ…dzenie naleÅ¼y wybraÄ‡ do pomiarÃ³w<br/> mapy poÅ‚Ä…czeÅ„ okablowania strukturalnego sieci lokalnej?</html>
+<html>Które urz¹dzenie nale¿y wybraæ do pomiarów<br/> mapy po³¹czeñ okablowania strukturalnego sieci lokalnej?</html>
 Monitor Sieciowy
 Reflektometr OTDR
-Analizator protokoÅ‚Ã³w
+Analizator protoko³ów
 Analizator sieci LAN
 d
