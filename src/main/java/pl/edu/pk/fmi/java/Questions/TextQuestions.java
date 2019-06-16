@@ -54,6 +54,12 @@ public class TextQuestions implements Question
 
         public TextQuestions build_from_file() throws IOException
         {
+            if(TextQuestions.count == 5)
+            {
+                System.out.println("oh NO I don't have Questions");
+                System.exit(44);
+            }
+
             BufferedReader bf = null;
             try
             {
