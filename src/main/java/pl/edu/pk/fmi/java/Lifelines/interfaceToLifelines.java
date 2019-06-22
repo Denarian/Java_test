@@ -1,6 +1,6 @@
 package pl.edu.pk.fmi.java.Lifelines;
 
-interface interfaceToLifelines
+public interface interfaceToLifelines
 {
     int getUseValue();
     void ChangeUsed();
