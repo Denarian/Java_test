@@ -56,4 +56,20 @@ public class AppTest {
         System.out.println(counter);
         if (counter == 1000) assertTrue(true);
     }
+    @Test
+    public void test_Lifelines_Phone_status()
+    {
+        Lifelines_Phone Lifelines_Phone_Test = new Lifelines_Phone();
+
+
+        Lifelines_Phone_Test.checkstatus(1);
+
+        if (Lifelines_Phone_Test.getUseValue() == 1)
+        {
+            assertTrue(true);
+        } else if (Lifelines_Phone_Test.getUseValue() != 1)
+        {
+            assertTrue(false);
+        }
+    }
 }

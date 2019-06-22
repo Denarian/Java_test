@@ -16,7 +16,7 @@ public class Lifelines_Phone implements interfaceToLifelines, Observer
     private Random generator = new Random();
 
 
-    void checkstatus(int a)
+    public void checkstatus(int a)
     {
         if(a==1)
         {
