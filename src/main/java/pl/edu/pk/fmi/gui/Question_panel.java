@@ -14,7 +14,7 @@ public class Question_panel extends JPanel
         text.setFont(text.getFont().deriveFont(20.0f));
         add(text);
     }
-    void change_text(String s){
+    public void change_text(String s){
        text.setText(s);
 
     }
